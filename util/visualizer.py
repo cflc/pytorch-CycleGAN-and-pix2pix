@@ -40,6 +40,8 @@ def save_images(webpage, visuals, image_path, aspect_ratio=1.0, width=256):
         ims.append(image_name)
         txts.append(label)
         links.append(image_name)
+
+    # TODO: add here any attempt to visualize data
     webpage.add_images(ims, txts, links, width=width)
 
 
@@ -160,7 +162,7 @@ class Visualizer():
                 image_numpy = util.tensor2im(image)
                 img_path = os.path.join(self.img_dir, 'epoch%.3d_%s.png' % (epoch, label))
                 util.save_image(image_numpy, img_path)
-
+            # TODO: save results in here
             # update website
             webpage = html.HTML(self.web_dir, 'Experiment name = %s' % self.name, refresh=1)
             for n in range(epoch, 0, -1):

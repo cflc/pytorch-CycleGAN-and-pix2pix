@@ -1,0 +1,9 @@
+
+python train.py --dataroot /home/gridsan/cflc/claudia/object_train_pointrend/2500/home/gridsan/cflc/claudia/px2px_data_pin
+ --name tactile_true_dif_resnet_dec_15_0_GAN_5k --dataset_mode tactile --model pix2pix --direction AtoB --niter 200 --save_epoch_freq 20 --netG resnet_9blocks
+
+
+python test.py --dataroot /home/mcube/tactile_data/dec_19/curved/dif/ --name tactile_group_dif_resnet_dec_18_0_GAN  --model pix2pix --direction AtoB --ntest 100 --num_test 100 --netG resnet_9blocks --norm group
+
+#data root is where 'train' 'val' 'test' folders live
+# name is just name, change it at will

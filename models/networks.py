@@ -30,6 +30,8 @@ def get_norm_layer(norm_type='instance'):
         norm_layer = functools.partial(nn.InstanceNorm2d, affine=False, track_running_stats=False)
     elif norm_type == 'none':
         def norm_layer(x): return Identity()
+    elif norm_type == 'group':
+        norm_layer = lambda nc: nn.GroupNorm(32, nc, affine=True)
     else:
         raise NotImplementedError('normalization layer [%s] is not found' % norm_type)
     return norm_layer
